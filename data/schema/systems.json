@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "sectors": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "starType": {
+                            "$ref": "enums.json#/enumStars"
+                        },
+                        "faction": {
+                            "$ref": "enums.json#/enumFactions"
+                        },
+                        "coordinates": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "objects": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "developmentLevel": {
+                                        "description": "Details of this field are TBD",
+                                        "type": "integer"
+                                    }
+                                },
+                                "oneOf": [
+                                    {
+                                        "properties": {
+                                            "objectType": {
+                                                "const": "type_planet",
+                                                "$ref": "#/definitions/systemObjectTypes"
+                                            },
+                                            "planetType": {
+                                                "$ref": "enums.json#/enumPlanets"
+                                            }
+                                        },
+                                        "required": [
+                                            "planetType"
+                                        ]
+                                    },
+                                    {
+                                        "properties": {
+                                            "objectType": {
+                                                "const": "type_station",
+                                                "$ref": "#/definitions/systemObjectTypes"
+                                            },
+                                            "stationType": {
+                                                "$ref": "enums.json#/enumStations"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "required": [
+                                    "objectType",
+                                    "name"
+                                ]
+                            }
+                        },
+                        "connections": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "starType",
+                        "faction",
+                        "coordinates",
+                        "objects",
+                        "connections"
+                    ]
+                }
+            }
+        }
+    },
+    "definitions": {
+        "systemObjectTypes": {
+            "type": "string",
+            "enum": [
+                "type_planet",
+                "type_station"
+            ]
+        }
+    }
+}

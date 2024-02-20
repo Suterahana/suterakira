@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "starTypes": {
+            "type": "object",
+            "propertyNames": {
+                "$ref": "enums.json#/enumStars"
+            },
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "planetCount": {
+                        "type": "string",
+                        "pattern": "^\\d(-\\d)?$",
+                        "description": "A single digit or a range (ex. 0-3)."
+                    },
+                    "planetProbabilities": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number"
+                        },
+                        "propertyNames": {
+                            "$ref": "enums.json#/enumPlanets"
+                        },
+                        "description": "Doesn't have to add up to 1 - the remaining value is the chance for any other unspecified planet to occur randomly. For the gameplay purposes, only one colony planet per system can spawn."
+                    }
+                },
+                "required": [
+                    "name",
+                    "description",
+                    "planetCount",
+                    "planetProbabilities",
+                    "weight"
+                ],
+                "additionalProperties": false
+            }
+        }
+    }
+}

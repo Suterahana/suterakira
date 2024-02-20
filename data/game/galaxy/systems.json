@@ -1,0 +1,35 @@
+{
+    "$schema": "../../schema/systems.json",
+    "sectors": {
+        "Zorya":[
+            {
+                "name": "Sol",
+                "starType": "id_star_g",
+                "coordinates": [0,0],
+                "faction": "id_faction_placeholder",
+                "objects": [
+                    {
+                        "objectType": "type_planet",
+                        "planetType": "id_planet_colony",
+                        "name": "Terra",
+                        "developmentLevel": 2
+                    },
+                    {
+                        "objectType": "type_planet",
+                        "planetType": "id_planet_barren",
+                        "name": "Mars"
+                    },
+                    {
+                        "objectType": "type_station",
+                        "stationType": "id_station_research",
+                        "name": "ISS",
+                        "developmentLevel": 1
+                    }
+                ],
+                "connections": [],
+                "_": "WIP more properties like pirateActivity, baseDangerLevel and so on"
+            }
+        ]
+
+    }
+}

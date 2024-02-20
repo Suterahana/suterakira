@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "enumTypes": {
+        "enum": [
+            "type_planet",
+            "type_star",
+            "type_station",
+            "type_faction"
+        ]
+    },
+    "enumStars": {
+        "enum": [
+            "id_star_a",
+            "id_star_g",
+            "id_star_m",
+            "id_star_b",
+            "id_star_d",
+            "id_star_neutron",
+            "id_star_black_hole"
+        ]
+    },
+    "enumPlanets": {
+        "enum": [
+            "id_planet_barren",
+            "id_planet_frozen",
+            "id_planet_molten",
+            "id_planet_gas_giant",
+            "id_planet_tomb",
+            "id_planet_ancient",
+            "id_planet_colony",
+            "id_planet_paradise",
+            "id_planet_unique"
+        ]
+    },
+    "enumStations": {
+        "enum":
+        [
+            "id_station_singularity",
+            "id_station_military",
+            "id_station_research",
+            "id_station_habitat",
+            "id_station_hostile",
+            "id_station_pirate_bay",
+            "id_station_assembly"
+        ]
+    },
+    "enumFactions": {
+        "enum":
+        [
+            "id_faction_none",
+            "id_faction_placeholder"
+        ]
+    }
+}

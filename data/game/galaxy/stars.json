@@ -1,0 +1,96 @@
+{
+    "$schema": "../../schema/stars.json",
+    "starTypes": {
+        "id_star_a": {
+            "name": "A-Type Star",
+            "description": "Blue to white main-sequence star, very hot with intense radiation. Increased chance for unique events and anomalies.",
+            "weight": 75,
+            "planetCount": "1-3",
+            "planetProbabilities": {
+                "id_planet_molten": 0.3,
+                "id_planet_colony": 0.2,
+                "id_planet_gas_giant": 0.15,
+                "id_planet_unique": 0.05,
+                "id_planet_tomb": 0.05,
+                "id_planet_ancient": 0,
+                "id_planet_paradise": 0
+            }
+        },
+        "id_star_g": {
+            "name": "Yellow Dwarf",
+            "description": "One of the most common types of star, highest chance for habitable planet.",
+            "weight": 200,
+            "planetCount": "2-4",
+            "planetProbabilities": {
+                "id_planet_colony": 0.3,
+                "id_planet_ancient": 0.05,
+                "id_planet_paradise": 0.05,
+                "id_planet_unique": 0
+            }
+        },
+        "id_star_m": {
+            "name": "Red Dwarf",
+            "description": "One of the most common types of star, cooler and less luminous than most.",
+            "weight": 230,
+            "planetCount": "2-3",
+            "planetProbabilities": {
+                "id_planet_colony": 0.2,
+                "id_planet_tomb": 0.2,
+                "id_planet_gas_giant": 0.1,
+                "id_planet_ancient": 0.1,
+                "id_planet_molten": 0.05,
+                "id_planet_paradise": 0,
+                "id_planet_unique": 0
+            }
+        },
+        "id_star_b": {
+            "name": "Blue Giant",
+            "description": "Rare and short-lived giant star with very high chance for anomalies.",
+            "weight": 25,
+            "planetCount": "1-2",
+            "planetProbabilities": {
+                "id_planet_unique": 0.5,
+                "id_planet_tomb": 0.1,
+                "id_planet_ancient": 0.1,
+                "id_planet_paradise": 0.1,
+                "id_planet_colony": 0.05
+            }
+        },
+        "id_star_d": {
+            "name": "white Dwarf",
+            "description": "Dense small remnants of the stars that have exhausted their fuel.",
+            "weight": 50,
+            "planetCount": "0-2",
+            "planetProbabilities": {
+                "id_planet_frozen": 0.3,
+                "id_planet_unique": 0.2,
+                "id_planet_ancient": 0.2,
+                "id_planet_colony": 0.15,
+                "id_planet_paradise": 0.05,
+                "id_planet_molten": 0.05
+            }
+        },
+        "id_star_neutron": {
+            "name": "Neutron Star",
+            "description": "Very rare, superdense remnants of supernova explosions with significant",
+            "weight": 5,
+            "planetCount": "0-1",
+            "planetProbabilities": {
+                "id_planet_unique": 0.6,
+                "id_planet_molten": 0.3,
+                "id_planet_ancient": 0.1
+            }
+        },
+        "id_star_black_hole": {
+            "name": "Black Hole",
+            "description": "⚫",
+            "weight": 8,
+            "planetCount": "0-1",
+            "planetProbabilities": {
+                "id_planet_frozen": 0.85,
+                "id_planet_unique": 0.1,
+                "id_planet_ancient": 0.05
+            }
+        }
+    }
+}

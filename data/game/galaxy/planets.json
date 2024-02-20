@@ -1,0 +1,32 @@
+{
+    "$schema": "../../schema/planets.json",
+    "planetTypes": {
+        "id_planet_barren":{
+            "name": "Barren World"
+        },
+        "id_planet_frozen":{
+            "name": "Frozen World"
+        },
+        "id_planet_molten":{
+            "name": "Molten World"
+        },
+        "id_planet_gas_giant":{
+            "name": "Gas Giant"
+        },
+        "id_planet_tomb":{
+            "name": "Tomb World"
+        },
+        "id_planet_ancient":{
+            "name": "Ancient World"
+        },
+        "id_planet_colony":{
+            "name": "Colony"
+        },
+        "id_planet_paradise":{
+            "name": "Paradise World"
+        },
+        "id_planet_unique":{
+            "name": "Unique World"
+        }
+    }
+}
