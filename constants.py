@@ -85,3 +85,4 @@ WORKER_RETRY_ON_ERROR_DELAY = 60
 
 class HelpMenuType(SuterakiraEnum):
     MAIN = "Main"
+    OTHER_IGNORE = "Other"

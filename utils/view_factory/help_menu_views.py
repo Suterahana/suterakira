@@ -1,11 +1,14 @@
+from typing import TYPE_CHECKING
+
 from discord import ButtonStyle
 from discord.ui import View, Button as ButtonView
 
-from discord_bot.interactions_handlers.main_interactions_handlers.help_menu_interactions_handler import \
-    HelpMenuInteractionsHandler
+if TYPE_CHECKING:
+    from discord_bot.interactions_handlers.main_interactions_handlers.help_menu_interactions_handler import \
+        HelpMenuInteractionsHandler
 
 
-def get_general_help_view(interactions_handler: HelpMenuInteractionsHandler,
+def get_general_help_view(interactions_handler: 'HelpMenuInteractionsHandler',
                           add_close_button=True) -> View:
     """
     Generates and returns the view for the general help menu

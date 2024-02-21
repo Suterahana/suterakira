@@ -3,7 +3,7 @@ from typing import Union, Any
 
 import discord
 
-import cached_items
+from components.command_permissions_component import CommandPermissionsComponent
 from constants import LogType
 from utils.custom_logger import InfoLogger, ErrorLogger
 
@@ -32,12 +32,11 @@ class BaseSlashes:
         self.command_name: str = interaction.command.qualified_name
         from .main_slashes.base_main_slashes import MainSlashes
         if isinstance(self, MainSlashes):
-            self.command_name = self.command_name.split(" ", 1)[1]
-            command_type_permissions = cached_items.main_commands_permissions
+            self.command_name = self.command_name
         else:
             raise NotImplementedError("Command category not handled while determining permissions.")
-        self.command_user_permissions: list = command_type_permissions.get(self.command_name, {}).get("member", [])
-        self.command_bot_permissions: list = command_type_permissions.get(self.command_name, {}).get("bot", [])
+        self.command_user_permissions, self.command_bot_permissions = \
+            CommandPermissionsComponent.get_permissions(command_name=self.command_name)
 
         self.info_logger = InfoLogger(component=self.__class__.__name__)
         self.error_logger = ErrorLogger(component=self.__class__.__name__)

@@ -3,7 +3,7 @@ import traceback
 from functools import wraps
 
 import discord
-from custom_logger import ErrorLogger, InfoLogger
+from .custom_logger import ErrorLogger, InfoLogger
 from constants import LogType, Colour
 
 

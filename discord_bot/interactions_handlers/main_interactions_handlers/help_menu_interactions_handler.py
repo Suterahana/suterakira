@@ -11,18 +11,15 @@ from utils.embed_factory.general_embeds import get_quick_embed
 
 class HelpMenuInteractionsHandler(MainInteractionsHandler):
 
-    def __init__(self, interaction: discord.Interaction, selected_menu: HelpMenuType.values_as_enum() = None,
-                 allow_navigation: bool = True):
+    def __init__(self, interaction: discord.Interaction, selected_menu: HelpMenuType.values_as_enum() = None):
         """
         Interaction handler for the help menu.
         Args:
             interaction (discord.Interaction): The interaction that triggered the help menu
             selected_menu (HelpMenuType.values_as_enum()): The selected menu
-            allow_navigation (bool): Whether to allow navigation in the help menu from its initial state
         """
         super().__init__(interaction)
         self._selected_menu = selected_menu.value if selected_menu else None
-        self.allow_navigation = allow_navigation
 
     @interaction_handler
     async def handle_main_menu(self, interaction: discord.Interaction) -> None:
@@ -79,10 +76,10 @@ class HelpMenuInteractionsHandler(MainInteractionsHandler):
         Returns:
             None
         """
-        embed, views = self.get_embed_and_view()
+        embed, view = self.get_embed_and_view()
         await self.source_interaction.edit_original_response(
             embed=embed,
-            view=views if not no_views and self.allow_navigation else None
+            view=view if not no_views else None
         )
 
     def get_embed_and_view(self) -> tuple[discord.Embed, discord.ui.View]:

@@ -8,7 +8,7 @@ def get_main_project_path() -> str:
     Returns:
         str: The path to the main project directory
     """
-    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 def get_path_to_file(relative_path_params: Union[Tuple[str], List[str]]) -> str:

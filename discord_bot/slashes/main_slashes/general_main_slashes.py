@@ -36,7 +36,7 @@ class GeneralMainSlashes(MainSlashes):
             return
 
         # since we only have the main commands for now
-        menu = HelpMenuType.MAIN if not menu else menu
+        menu = HelpMenuType.values_as_enum().Main if not menu else menu  # noqa
 
         interactions_handler = HelpMenuInteractionsHandler(interaction=self.interaction,
                                                            selected_menu=menu)

@@ -1,6 +1,6 @@
 import os
 
-ENV = os.environ.get('ENV', 'local').lower()
+ENV = os.environ.get('RUN_ENV', 'local').lower()
 
 if ENV == 'prod':
     from .prod import *

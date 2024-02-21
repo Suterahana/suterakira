@@ -5,7 +5,6 @@ from pathlib import Path
 import discord
 
 import settings
-from clients import discord_client
 from constants import LogType
 from settings import DISCORD_LOGGING_CHANNEL_ID
 from utils.embed_factory.general_embeds import get_discord_log_embed
@@ -81,17 +80,13 @@ class Logger:
         Returns:
             None
         """
-        event_loop = asyncio.get_event_loop()
-        await event_loop.run_in_executor(None, self._log_to_console,
-                                         message, log_type, extras)
+        self._log_to_console(message=message, log_type=log_type, extras=extras)
         if log_to_file:
-            await event_loop.run_in_executor(None, self._log_to_file,
-                                             message, log_type, extras)
+            await self._log_to_file(message=message, log_type=log_type, extras=extras)
         if log_to_discord:
-            await event_loop.run_in_executor(None, self._log_to_discord,
-                                             message, log_type, extras)
+            await self._log_to_discord(message=message, log_type=log_type, extras=extras)
 
-    async def _log_to_console(self, message: str, log_type: str, extras: dict = None) -> None:  # noqa
+    def _log_to_console(self, message: str, log_type: str, extras: dict = None) -> None:  # noqa
         """
         Log a message to console
         Args:
@@ -121,8 +116,7 @@ class Logger:
                     f"{get_current_time_string()} [{log_type}] {message} - {extras_str}\n"
                 )
         except Exception as e:
-            await self._log_to_console(message=f"Error while logging to file: {e}",
-                                       log_type=LogType.ERROR)
+            self._log_to_console(message=f"Error while logging to file: {e}", log_type=LogType.ERROR)
 
     async def _log_to_discord(self, message: str, log_type: str, extras: dict = None) -> None:  # noqa
         """
@@ -134,6 +128,7 @@ class Logger:
         Returns:
             None
         """
+        from clients import discord_client
         log_channel = discord_client.get_channel(DISCORD_LOGGING_CHANNEL_ID)
         if len(message) > 4000:
             buf = io.BytesIO(str.encode(f"{get_current_time_string()} [{log_type}]\n{message}"))

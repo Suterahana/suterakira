@@ -30,6 +30,9 @@ def get_discord_log_embed(message: str, log_type: str, extras: dict) -> discord.
     embed.set_author(name=f'{log_type} Log')
     embed.set_footer(text="", icon_url=icon_url)
     for key, value in extras.items():
+        if key == "component":
+            embed.set_footer(text="", icon_url=icon_url)
+            continue
         embed.add_field(name=f"{key}", value=f"{value}", inline=False)
     return embed
 

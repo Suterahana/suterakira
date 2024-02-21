@@ -6,7 +6,6 @@ from datetime import datetime
 import discord
 
 from constants import PERIODIC_WORKER_FREQUENCY, LogType, WORKER_RETRY_ON_ERROR_DELAY
-from utils.custom_logger import InfoLogger, ErrorLogger
 
 
 class WorkerManagerService:
@@ -24,6 +23,7 @@ class WorkerManagerService:
     def __init__(self):
         self._worker_queue = None
         self._is_running = False
+        from utils.custom_logger import InfoLogger, ErrorLogger
         self.info_logger = InfoLogger(component=self.__class__.__name__)
         self.error_logger = ErrorLogger(component=self.__class__.__name__)
 
@@ -113,9 +113,11 @@ class WorkerManagerService:
                 next_run=discord.utils.utcnow().timestamp() + worker_callback.worker_data['initial_delay'],
                 **worker_callback.worker_data['kwargs']
             )
-        worker_list_str = "\n• ".join([worker_callback.worker_data['name'] for worker_callback in worker_callbacks])
-        self.info_logger.log(f"Registered workers:\n• {worker_list_str}",
-                             log_type=LogType.INFO)
+
+        if worker_callbacks:
+            worker_list_str = "\n• ".join([worker_callback.worker_data['name'] for worker_callback in worker_callbacks])
+            self.info_logger.log(f"Registered workers:\n• {worker_list_str}",
+                                 log_type=LogType.INFO)
 
 
 class WorkerItem:
