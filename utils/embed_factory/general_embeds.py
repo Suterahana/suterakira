@@ -23,7 +23,7 @@ def get_discord_log_embed(message: str, log_type: str, extras: dict) -> discord.
     elif log_type == LogType.DM_RECEIVED:
         color = Colour.GREEN
     else:
-        color = Colour.PRIMACY_ACCENT
+        color = Colour.PRIMARY_ACCENT
 
     embed = discord.Embed(description=message, color=color,
                           timestamp=discord.utils.utcnow())
@@ -34,7 +34,7 @@ def get_discord_log_embed(message: str, log_type: str, extras: dict) -> discord.
     return embed
 
 
-def get_quick_embed(text: str, color: int = Colour.PRIMACY_ACCENT) -> discord.Embed:
+def get_quick_embed(text: str, color: int = Colour.PRIMARY_ACCENT) -> discord.Embed:
     """
     Get a quick embed
     Args:

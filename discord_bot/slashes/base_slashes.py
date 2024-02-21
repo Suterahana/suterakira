@@ -35,7 +35,7 @@ class BaseSlashes:
             self.command_name = self.command_name.split(" ", 1)[1]
             command_type_permissions = cached_items.main_commands_permissions
         else:
-            raise NotImplementedError("Command type not handled while determining permissions.")
+            raise NotImplementedError("Command category not handled while determining permissions.")
         self.command_user_permissions: list = command_type_permissions.get(self.command_name, {}).get("member", [])
         self.command_bot_permissions: list = command_type_permissions.get(self.command_name, {}).get("bot", [])
 

@@ -29,7 +29,7 @@ class SuterakiraEnum:
 
 
 class Colour(SuterakiraEnum):
-    PRIMACY_ACCENT = 0x402349
+    PRIMARY_ACCENT = 0x402349
 
     RED = 0xB94D35
     GREEN = 0x8ADE87

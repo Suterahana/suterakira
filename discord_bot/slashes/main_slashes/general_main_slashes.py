@@ -1,7 +1,9 @@
 import settings
-from constants import Colour
+from constants import Colour, HelpMenuType
 from utils.decorators import slash_command
 from ..main_slashes.base_main_slashes import MainSlashes
+from ...interactions_handlers.main_interactions_handlers.help_menu_interactions_handler import \
+    HelpMenuInteractionsHandler
 
 
 class GeneralMainSlashes(MainSlashes):
@@ -24,7 +26,7 @@ class GeneralMainSlashes(MainSlashes):
         )
 
     @slash_command
-    async def help(self, menu: str = None, make_visible: bool = False):
+    async def help(self, menu: HelpMenuType.values_as_enum() = None, make_visible: bool = False):
         """
         /help
         Show the help menu
@@ -32,6 +34,9 @@ class GeneralMainSlashes(MainSlashes):
 
         if not await self.preprocess_and_validate():
             return
+
+        # since we only have the main commands for now
+        menu = HelpMenuType.MAIN if not menu else menu
 
         interactions_handler = HelpMenuInteractionsHandler(interaction=self.interaction,
                                                            selected_menu=menu)

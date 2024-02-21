@@ -27,12 +27,12 @@ class GeneralMainBlueprints(Cog):
 
     @HELP
     @app_commands.rename(make_visible="make-visible")
-    async def help(self, inter, menu: HelpMenuType.values_as_enum() = None, make_visible: bool = False):
+    async def help(self, interaction, menu: HelpMenuType.values_as_enum() = None, make_visible: bool = False):
         """Show the help menu
 
         Parameters
         -----------
-        inter: Interaction
+        interaction: Interaction
             Interaction to handle
         menu: HelpMenuType.values_as_enum()
            Jump to a specific menu
@@ -40,4 +40,4 @@ class GeneralMainBlueprints(Cog):
             Make the menu visible to everyone
         """
 
-        await GeneralMainSlashes(interaction=inter).help(menu=menu, make_visible=make_visible)
+        await GeneralMainSlashes(interaction=interaction).help(menu=menu, make_visible=make_visible)
