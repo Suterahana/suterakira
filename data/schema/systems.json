@@ -35,7 +35,7 @@
                                         "type": "string"
                                     },
                                     "developmentLevel": {
-                                        "description": "Details of this field are TBD",
+                                        "description": "Details of this field are TBD, for now try to stick to values 0-5 with 0 being primitives and 5 an ecumenopolis.",
                                         "type": "integer"
                                     }
                                 },

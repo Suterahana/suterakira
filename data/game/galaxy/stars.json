@@ -45,8 +45,8 @@
         },
         "id_star_b": {
             "name": "Blue Giant",
-            "description": "Rare and short-lived giant star with very high chance for anomalies.",
-            "weight": 25,
+            "description": "Rare and short-lived giant star with a high chance for anomalies.",
+            "weight": 33,
             "planetCount": "1-2",
             "planetProbabilities": {
                 "id_planet_unique": 0.5,
@@ -72,8 +72,8 @@
         },
         "id_star_neutron": {
             "name": "Neutron Star",
-            "description": "Very rare, superdense remnants of supernova explosions with significant",
-            "weight": 5,
+            "description": "Very rare, superdense remnants of supernova explosions. Significantly increased chance for unique events and anomalies.",
+            "weight": 10,
             "planetCount": "0-1",
             "planetProbabilities": {
                 "id_planet_unique": 0.6,
@@ -84,7 +84,7 @@
         "id_star_black_hole": {
             "name": "Black Hole",
             "description": "⚫",
-            "weight": 8,
+            "weight":20,
             "planetCount": "0-1",
             "planetProbabilities": {
                 "id_planet_frozen": 0.85,
