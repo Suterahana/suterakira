@@ -2,5 +2,3 @@
 /.idea
 /__pycache__/
 .venv
-tool_output.txt
-tool_output.json
